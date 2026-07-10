@@ -182,6 +182,269 @@ button {
   }
 }
 
+.journey-section {
+  border-bottom: 1px solid #e7e1d8;
+  background: #fff;
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.journey-step {
+  min-width: 0;
+  padding-right: 1rem;
+}
+
+.journey-step-top {
+  display: flex;
+  align-items: center;
+  min-height: 3rem;
+}
+
+.journey-number {
+  flex: 0 0 auto;
+  color: var(--gold-dark);
+  font-family: var(--serif);
+  font-size: 2rem;
+}
+
+.journey-arrow {
+  display: flex;
+  min-width: 1.5rem;
+  flex: 1;
+  align-items: center;
+  margin: 0 0.45rem 0 0.8rem;
+  color: var(--gold);
+}
+
+.journey-arrow span {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), rgba(176, 141, 87, 0.25));
+}
+
+.journey-arrow i {
+  margin-left: -0.15rem;
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.journey-step h3 {
+  margin-top: 1rem;
+  color: #44403c;
+  font-size: 0.67rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.journey-step p {
+  max-width: 9rem;
+  margin-top: 0.65rem;
+  color: #8a8278;
+  font-size: 0.64rem;
+  line-height: 1.65;
+}
+
+.global-section {
+  position: relative;
+  overflow: hidden;
+  background: #f7f2e9;
+}
+
+.global-layout {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.72fr) minmax(0, 1.45fr);
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.global-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.global-map {
+  position: relative;
+  min-height: 26rem;
+}
+
+.global-map > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.27;
+  filter: sepia(1) saturate(0.75) hue-rotate(355deg) brightness(1.08);
+}
+
+.global-routes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.global-routes > path {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 5;
+  marker-end: url(#goldArrow);
+}
+
+.global-routes circle {
+  fill: var(--gold-dark);
+}
+
+.global-routes .map-origin-pulse {
+  fill: rgba(176, 141, 87, 0.18);
+  stroke: var(--gold);
+  animation: map-pulse 2.3s infinite;
+}
+
+@keyframes map-pulse {
+  0%, 100% { r: 6px; opacity: 0.9; }
+  50% { r: 12px; opacity: 0.2; }
+}
+
+.map-label {
+  position: absolute;
+  color: var(--gold-dark);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.map-label-origin {
+  top: 53%;
+  left: 77%;
+}
+
+.global-destinations {
+  position: absolute;
+  right: 0;
+  bottom: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
+.global-destinations span {
+  border: 1px solid rgba(176, 141, 87, 0.38);
+  background: rgba(255, 255, 255, 0.62);
+  padding: 0.35rem 0.55rem;
+  color: #74634c;
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 900px) {
+  .journey-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 2.5rem;
+  }
+
+  .journey-step:nth-child(3) .journey-arrow {
+    display: none;
+  }
+
+  .global-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .global-copy {
+    max-width: 34rem;
+  }
+
+  .global-map {
+    min-height: 22rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .journey-grid {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+  }
+
+  .journey-step {
+    position: relative;
+    min-height: 9rem;
+    padding: 0 0 1.5rem 4.25rem;
+  }
+
+  .journey-step-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+  }
+
+  .journey-number {
+    font-size: 1.75rem;
+  }
+
+  .journey-arrow {
+    position: absolute;
+    top: 2.7rem;
+    left: 0.65rem;
+    display: block !important;
+    width: 1px;
+    height: 4rem;
+    margin: 0;
+  }
+
+  .journey-step:last-child .journey-arrow {
+    display: none !important;
+  }
+
+  .journey-arrow span {
+    display: block;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(var(--gold), rgba(176, 141, 87, 0.2));
+  }
+
+  .journey-arrow i {
+    position: absolute;
+    bottom: -0.2rem;
+    left: -0.27rem;
+    transform: rotate(90deg);
+  }
+
+  .journey-step h3 {
+    margin-top: 0.2rem;
+    font-size: 0.72rem;
+  }
+
+  .journey-step p {
+    max-width: 15rem;
+    font-size: 0.68rem;
+  }
+
+  .global-map {
+    min-height: 16rem;
+    transform: scale(1.15);
+  }
+
+  .global-routes,
+  .map-label-origin {
+    display: none;
+  }
+
+  .global-destinations {
+    right: 1rem;
+    bottom: -1rem;
+    left: 1rem;
+    justify-content: center;
+  }
+}
+
 .services-page {
   background: #fcfbf8;
 }

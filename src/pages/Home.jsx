@@ -296,6 +296,103 @@ function CustomerFeedback() {
   );
 }
 
+function ProductionJourney() {
+  const steps = [
+    ["Consultation", "Understanding your vision and requirements"],
+    ["Development", "Design, pattern, and material development"],
+    ["Sampling", "Creating prototypes and fit samples"],
+    ["Production", "High-quality production with advanced systems"],
+    ["Quality Control", "Multi-stage quality inspection"],
+    ["Global Delivery", "On-time delivery to your destination"],
+  ];
+
+  return (
+    <section className="journey-section">
+      <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-20">
+        <div className="text-center">
+          <p className="section-kicker">HOW WE WORK</p>
+          <h2 className="mt-3 font-serif text-3xl sm:text-4xl">Our Production Journey</h2>
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-stone-500">
+            A thoughtful process designed to turn your creative vision into a
+            beautifully finished collection.
+          </p>
+        </div>
+        <div className="journey-grid mt-12">
+          {steps.map(([title, description], index) => (
+            <article className="journey-step" key={title}>
+              <div className="journey-step-top">
+                <span className="journey-number">{String(index + 1).padStart(2, "0")}</span>
+                {index < steps.length - 1 && (
+                  <span className="journey-arrow" aria-hidden="true">
+                    <span />
+                    <i>→</i>
+                  </span>
+                )}
+              </div>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GlobalReach() {
+  const destinations = ["UAE", "India", "Malaysia", "Singapore", "Australia"];
+
+  return (
+    <section className="global-section">
+      <div className="global-layout mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-20">
+        <div className="global-copy">
+          <p className="section-kicker">GLOBAL REACH</p>
+          <h2 className="mt-3 font-serif text-3xl leading-tight sm:text-4xl">
+            Trusted by Fashion Brands Across the World
+          </h2>
+          <p className="mt-5 text-sm leading-7 text-stone-600">
+            Delivering premium quality garments to our partners in more than 10
+            countries, with Indonesia at the heart of every journey.
+          </p>
+          <Link to="/contact" className="gold-link mt-7 inline-flex">
+            DISCOVER OUR LOCATION <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+
+        <div className="global-map" aria-label="Aireta global distribution map">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
+            alt="World map"
+          />
+          <svg className="global-routes" viewBox="0 0 700 360" aria-hidden="true">
+            <defs>
+              <marker id="goldArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L7,3 z" fill="#b08d57" />
+              </marker>
+            </defs>
+            <path d="M527 207 Q450 150 399 171" />
+            <path d="M527 207 Q475 190 455 202" />
+            <path d="M527 207 Q548 184 564 188" />
+            <path d="M527 207 Q565 214 585 224" />
+            <path d="M527 207 Q583 250 600 287" />
+            <circle cx="527" cy="207" r="7" className="map-origin-pulse" />
+            <circle cx="527" cy="207" r="3" />
+            <circle cx="399" cy="171" r="3" />
+            <circle cx="455" cy="202" r="3" />
+            <circle cx="564" cy="188" r="3" />
+            <circle cx="585" cy="224" r="3" />
+            <circle cx="600" cy="287" r="3" />
+          </svg>
+          <span className="map-label map-label-origin">INDONESIA</span>
+          <div className="global-destinations">
+            {destinations.map((place) => <span key={place}>{place}</span>)}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <div>
@@ -329,42 +426,8 @@ export default function Home() {
       <Portfolio />
       <CustomerFeedback />
 
-      <section className="bg-white py-12">
-        <div className="max-w-6xl mx-auto px-6">
-          <h4 className="text-center text-lg text-gray-600">
-            Our Production Journey
-          </h4>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-6 mt-6 text-center text-sm text-gray-600">
-            {["01", "02", "03", "04", "05", "06"].map((n, i) => (
-              <div key={i}>
-                <div className="text-2xl font-semibold">{n}</div>
-                <div className="mt-2">Step Title</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-gray-50 py-12">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
-          <div>
-            <h3 className="font-serif text-2xl">
-              Trusted by Fashion Brands Across the World
-            </h3>
-            <p className="mt-4 text-gray-600">
-              Delivering premium quality garments to our partners in more than
-              10 countries.
-            </p>
-          </div>
-          <div
-            className="h-48 bg-contain bg-no-repeat"
-            style={{
-              backgroundImage:
-                "url(https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg)",
-            }}
-          ></div>
-        </div>
-      </section>
+      <ProductionJourney />
+      <GlobalReach />
 
       <section className="py-12">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-6">
