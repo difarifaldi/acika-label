@@ -182,6 +182,151 @@ button {
   }
 }
 
+.portfolio-page { background: #fcfbf8; }
+
+.portfolio-hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #e5ded4;
+  background: linear-gradient(135deg, #fff 0%, #f5efe5 100%);
+}
+
+.portfolio-hero::after {
+  content: "";
+  position: absolute;
+  right: -8rem;
+  bottom: -13rem;
+  width: 28rem;
+  height: 28rem;
+  border: 1px solid rgba(176, 141, 87, 0.24);
+  border-radius: 50%;
+}
+
+.portfolio-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.8rem;
+  border-bottom: 1px solid #ddd4c7;
+}
+
+.portfolio-filter button {
+  position: relative;
+  padding: 0.75rem 0;
+  color: #8a8278;
+  font-size: 0.66rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.portfolio-filter button::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 200ms ease;
+}
+
+.portfolio-filter button:hover,
+.portfolio-filter .portfolio-filter-active { color: var(--gold-dark); }
+.portfolio-filter .portfolio-filter-active::after { transform: scaleX(1); }
+
+.portfolio-gallery {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-auto-rows: 17rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.portfolio-project {
+  position: relative;
+  overflow: hidden;
+  min-height: 17rem;
+  text-align: left;
+}
+
+.portfolio-project-tall { grid-row: span 2; }
+.portfolio-project-wide { grid-column: span 2; }
+
+.portfolio-project img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.portfolio-project-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 12, 8, 0.02) 35%, rgba(15, 12, 8, 0.82));
+  transition: background 350ms ease;
+}
+
+.portfolio-project-index {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: rgba(255,255,255,0.8);
+  font-family: var(--serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+}
+
+.portfolio-project-info {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  color: white;
+}
+
+.portfolio-project-category { display: block; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.8; }
+.portfolio-project-title { display: block; margin-top: 0.5rem; font-family: var(--serif); font-size: 1.55rem; }
+.portfolio-project-view { display: flex; max-height: 0; align-items: center; gap: 0.6rem; overflow: hidden; font-size: 0.58rem; letter-spacing: 0.1em; opacity: 0; transition: max-height 300ms ease, margin 300ms ease, opacity 300ms ease; }
+.portfolio-project-view i { color: #d9bd8e; font-style: normal; font-size: 0.9rem; }
+.portfolio-project:hover img { transform: scale(1.06); }
+.portfolio-project:hover .portfolio-project-shade { background: linear-gradient(180deg, rgba(15,12,8,0.08), rgba(15,12,8,0.88)); }
+.portfolio-project:hover .portfolio-project-view { max-height: 2rem; margin-top: 0.9rem; opacity: 1; }
+
+.portfolio-closing { border-top: 1px solid #e2dbd1; background: #f5f0e7; }
+
+.portfolio-lightbox {
+  position: fixed;
+  z-index: 60;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  background: rgba(20, 17, 13, 0.88);
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+}
+
+.portfolio-lightbox-inner { display: grid; width: min(58rem, 100%); grid-template-columns: 1.2fr 0.8fr; background: #fff; box-shadow: 0 30px 90px rgba(0,0,0,0.35); }
+.portfolio-lightbox-inner img { width: 100%; height: 34rem; object-fit: cover; }
+.portfolio-lightbox-copy { display: flex; flex-direction: column; justify-content: center; padding: 2.5rem; }
+.portfolio-lightbox-close { position: fixed; z-index: 2; top: 1rem; right: 1.25rem; color: white; font-size: 2.25rem; font-weight: 200; }
+
+@media (max-width: 767px) {
+  .portfolio-gallery { grid-auto-rows: 20rem; grid-template-columns: 1fr 1fr; }
+  .portfolio-project-wide { grid-column: span 2; }
+  .portfolio-lightbox-inner { grid-template-columns: 1fr; }
+  .portfolio-lightbox-inner img { height: 48vh; }
+  .portfolio-lightbox-copy { padding: 1.5rem; }
+}
+
+@media (max-width: 520px) {
+  .portfolio-filter { flex-wrap: nowrap; overflow-x: auto; }
+  .portfolio-filter button { flex: 0 0 auto; }
+  .portfolio-gallery { grid-auto-rows: 24rem; grid-template-columns: 1fr; }
+  .portfolio-project-tall, .portfolio-project-wide { grid-row: span 1; grid-column: span 1; }
+  .portfolio-lightbox { align-items: start; padding: 3.5rem 1rem 1rem; }
+}
+
 .journey-section {
   border-bottom: 1px solid #e7e1d8;
   background: #fff;
