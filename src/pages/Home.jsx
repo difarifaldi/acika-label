@@ -103,11 +103,11 @@ function Services() {
 
 function Portfolio() {
   const imgs = [
-    "/images/foto1.jpg",
-    "/images/foto2.jpg",
-    "/images/foto3.jpg",
-    "/images/foto4.jpg",
-    "/images/foto5.jpg",
+    `${import.meta.env.BASE_URL}images/foto1.jpg`,
+    `${import.meta.env.BASE_URL}images/foto2.jpg`,
+    `${import.meta.env.BASE_URL}images/foto3.jpg`,
+    `${import.meta.env.BASE_URL}images/foto4.jpg`,
+    `${import.meta.env.BASE_URL}images/foto5.jpg`,
   ];
   const labels = [
     "EVENING WEAR",
@@ -159,7 +159,7 @@ export default function Home() {
       <section className="bg-white">
         <div className="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-2 gap-8 items-center">
           <img
-            src="/images/factory-landscape.jpg"
+            src={`${import.meta.env.BASE_URL}images/factory-landscape.jpg`}
             alt="factory"
             className="rounded"
           />

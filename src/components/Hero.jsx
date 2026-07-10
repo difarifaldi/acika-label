@@ -30,7 +30,7 @@ export default function Hero() {
           <div
             className="w-full h-72 sm:h-96 bg-cover bg-center rounded"
             style={{
-              backgroundImage: "url(/images/main-landscape.jpg)",
+              backgroundImage: `url(${import.meta.env.BASE_URL}images/main-landscape.jpg)`,
             }}
           ></div>
         </div>
