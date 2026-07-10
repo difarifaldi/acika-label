@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+import Services from "./pages/Services";
 
 export default function App() {
   return (
@@ -10,10 +11,7 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route
-            path="/our-services"
-            element={<div className="p-20">Our Services (placeholder)</div>}
-          />
+          <Route path="/our-services" element={<Services />} />
           <Route
             path="/portfolio"
             element={<div className="p-20">Portfolio (placeholder)</div>}
