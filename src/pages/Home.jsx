@@ -121,7 +121,9 @@ function Portfolio() {
       <div className="flex items-end justify-between gap-5">
         <div>
           <p className="section-kicker">FEATURED COLLECTIONS</p>
-          <h3 className="mt-2 text-2xl font-serif">Crafted for International Brands</h3>
+          <h3 className="mt-2 text-2xl font-serif">
+            Crafted for International Brands
+          </h3>
         </div>
         <Link to="/portfolio" className="gold-link hidden sm:inline-flex">
           VIEW ALL PORTFOLIO <span aria-hidden="true">→</span>
@@ -138,9 +140,7 @@ function Portfolio() {
               style={{ backgroundImage: `url(${src})` }}
             />
             <div className="portfolio-overlay absolute inset-0 flex items-end bg-gradient-to-t from-black/70 via-transparent to-transparent p-4">
-              <div className="text-sm text-white">
-                {labels[i]}
-              </div>
+              <div className="text-sm text-white">{labels[i]}</div>
             </div>
           </div>
         ))}
@@ -148,6 +148,150 @@ function Portfolio() {
       <Link to="/portfolio" className="gold-link mt-6 inline-flex sm:hidden">
         VIEW ALL PORTFOLIO <span aria-hidden="true">→</span>
       </Link>
+    </section>
+  );
+}
+
+function CustomerFeedback() {
+  const testimonials = [
+    {
+      name: "Nadia Prameswari",
+      role: "Founder, Maison Nara",
+      location: "Jakarta, Indonesia",
+      image: `${import.meta.env.BASE_URL}images/foto6.jpg`,
+      quote:
+        "Aireta tidak hanya memahami desain kami, tetapi juga karakter brand yang ingin kami bangun. Hasil produksinya rapi, komunikasinya jelas, dan setiap detail terasa sangat diperhatikan.",
+    },
+    {
+      name: "Sarah Wijaya",
+      role: "Creative Director, SORA Studio",
+      location: "Bandung, Indonesia",
+      image: `${import.meta.env.BASE_URL}images/foto7.jpg`,
+      quote:
+        "Dari proses sampling sampai koleksi siap diluncurkan, tim Aireta sangat suportif. Mereka membantu kami menemukan solusi terbaik tanpa mengorbankan kualitas maupun visi kreatif.",
+    },
+    {
+      name: "Alya Rahman",
+      role: "Brand Owner, Élan Modest",
+      location: "Kuala Lumpur, Malaysia",
+      image: `${import.meta.env.BASE_URL}images/foto8.jpg`,
+      quote:
+        "Kami merasa memiliki partner, bukan sekadar vendor produksi. Timeline terjaga, kualitas konsisten, dan hasil akhirnya bahkan melampaui ekspektasi tim kami.",
+    },
+    {
+      name: "Catherine Lim",
+      role: "Founder, Atelier C",
+      location: "Singapore",
+      image: `${import.meta.env.BASE_URL}images/foto9.jpg`,
+      quote:
+        "Professional, thoughtful, and remarkably detail-oriented. Aireta made the entire development process feel effortless and delivered a collection we are truly proud of.",
+    },
+  ];
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return undefined;
+    const timer = window.setInterval(
+      () => setActive((current) => (current + 1) % testimonials.length),
+      5500,
+    );
+    return () => window.clearInterval(timer);
+  }, [paused, testimonials.length]);
+
+  const changeSlide = (direction) => {
+    setActive(
+      (current) =>
+        (current + direction + testimonials.length) % testimonials.length,
+    );
+  };
+
+  return (
+    <section
+      className="feedback-section"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-20">
+        <div className="mb-8 flex items-end justify-between gap-5 sm:mb-10">
+          <div>
+            <p className="section-kicker">CLIENT STORIES</p>
+            <h2 className="mt-3 max-w-lg font-serif text-3xl leading-tight sm:text-4xl">
+              Trusted by Visionary Fashion Brands
+            </h2>
+          </div>
+          <div className="hidden gap-2 sm:flex">
+            <button
+              type="button"
+              className="slider-arrow"
+              aria-label="Previous testimonial"
+              onClick={() => changeSlide(-1)}
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              className="slider-arrow"
+              aria-label="Next testimonial"
+              onClick={() => changeSlide(1)}
+            >
+              →
+            </button>
+          </div>
+        </div>
+
+        <div className="feedback-slider">
+          {testimonials.map((item, index) => (
+            <article
+              key={item.name}
+              className={`feedback-slide ${index === active ? "feedback-slide-active" : ""}`}
+              aria-hidden={index !== active}
+            >
+              <div className="feedback-image-wrap">
+                <img src={item.image} alt={`Collection by ${item.role}`} />
+                <span className="feedback-image-number">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <div className="feedback-content">
+                <div className="feedback-stars" aria-label="5 out of 5 stars">
+                  ★ ★ ★ ★ ★
+                </div>
+                <span className="feedback-quote-mark" aria-hidden="true">“</span>
+                <blockquote>{item.quote}</blockquote>
+                <div className="feedback-author">
+                  <span className="feedback-author-line" />
+                  <div>
+                    <p className="font-serif text-xl">{item.name}</p>
+                    <p className="mt-1 text-[10px] tracking-[0.12em] text-stone-500">
+                      {item.role} · {item.location}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-6 flex items-center justify-between sm:justify-center">
+          <div className="flex gap-2">
+            {testimonials.map((item, index) => (
+              <button
+                key={item.name}
+                type="button"
+                className={`slider-dot ${index === active ? "slider-dot-active" : ""}`}
+                aria-label={`Show testimonial ${index + 1}`}
+                aria-current={index === active}
+                onClick={() => setActive(index)}
+              />
+            ))}
+          </div>
+          <div className="flex gap-2 sm:hidden">
+            <button type="button" className="slider-arrow" aria-label="Previous testimonial" onClick={() => changeSlide(-1)}>←</button>
+            <button type="button" className="slider-arrow" aria-label="Next testimonial" onClick={() => changeSlide(1)}>→</button>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
@@ -183,6 +327,7 @@ export default function Home() {
       <Stats />
       <Services />
       <Portfolio />
+      <CustomerFeedback />
 
       <section className="bg-white py-12">
         <div className="max-w-6xl mx-auto px-6">
@@ -225,7 +370,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-6">
           <div>
             <h4 className="font-serif text-2xl">
-              Let\'s Create Something Extraordinary
+              Let's Create Something Extraordinary
             </h4>
             <p className="mt-4 text-gray-600">
               Your next collection begins here.
