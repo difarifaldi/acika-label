@@ -1,0 +1,33 @@
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
+
+export default function App() {
+  return (
+    <div className="min-h-screen font-sans text-gray-900">
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/our-services"
+            element={<div className="p-20">Our Services (placeholder)</div>}
+          />
+          <Route
+            path="/portfolio"
+            element={<div className="p-20">Portfolio (placeholder)</div>}
+          />
+          <Route
+            path="/location"
+            element={<div className="p-20">Location (placeholder)</div>}
+          />
+          <Route
+            path="/contact"
+            element={<div className="p-20">Contact (placeholder)</div>}
+          />
+        </Routes>
+      </main>
+    </div>
+  );
+}

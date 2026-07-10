@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --serif: "Playfair Display", serif;
+  --sans: "Inter", sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--sans);
+}
+
+.font-serif {
+  font-family: var(--serif);
+}
