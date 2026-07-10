@@ -359,14 +359,7 @@ function ProductionJourney() {
 }
 
 function GlobalReach() {
-  const destinations = [
-    "Sumatra",
-    "Jakarta",
-    "Bali",
-    "Kalimantan",
-    "Sulawesi",
-    "Papua",
-  ];
+  const destinations = ["UAE", "India", "Malaysia", "Singapore", "Australia"];
 
   return (
     <section className="global-section">
@@ -377,8 +370,8 @@ function GlobalReach() {
             Trusted by Fashion Brands Across the World
           </h2>
           <p className="mt-5 text-sm leading-7 text-stone-600">
-            Menjangkau berbagai kota dan pulau di seluruh Indonesia, dengan
-            Bandung sebagai pusat dari setiap perjalanan produksi kami.
+            Delivering premium quality garments from Jakarta to fashion brands
+            and partners across international markets.
           </p>
           <Link to="/contact" className="gold-link mt-7 inline-flex">
             DISCOVER OUR LOCATION <span aria-hidden="true">→</span>
@@ -395,27 +388,27 @@ function GlobalReach() {
             viewBox="0 0 700 360"
             aria-hidden="true"
           >
-            <path d="M522 207 Q503 202 490 205" />
-            <path d="M522 207 Q525 220 536 228" />
-            <path d="M522 207 Q552 196 570 201" />
-            <path d="M522 207 Q565 183 586 184" />
-            <path d="M522 207 Q585 194 612 205" />
-            <path d="M522 207 Q618 186 654 192" />
-            <circle cx="522" cy="207" r="7" className="map-origin-pulse" />
-            <circle cx="522" cy="207" r="3" />
-            <circle cx="490" cy="205" r="3" />
-            <circle cx="536" cy="228" r="3" />
-            <circle cx="570" cy="201" r="3" />
-            <circle cx="586" cy="184" r="3" />
-            <circle cx="612" cy="205" r="3" />
-            <circle cx="654" cy="192" r="3" />
+            <path d="M527 207 Q450 150 399 171" />
+            <path d="M527 207 Q475 190 455 202" />
+            <path d="M527 207 Q548 184 564 188" />
+            <path d="M527 207 Q565 214 585 224" />
+            <path d="M527 207 Q583 250 600 287" />
+            <circle cx="527" cy="207" r="7" className="map-origin-pulse" />
+            <circle cx="527" cy="207" r="3" />
+            <circle cx="399" cy="171" r="3" />
+            <circle cx="455" cy="202" r="3" />
+            <circle cx="564" cy="188" r="3" />
+            <circle cx="585" cy="224" r="3" />
+            <circle cx="600" cy="287" r="3" />
           </svg>
-          <span className="map-label map-label-origin">BANDUNG</span>
-          <div className="global-destinations">
+          <span className="map-label map-label-origin">
+            JAKARTA · INDONESIA
+          </span>
+          {/* <div className="global-destinations">
             {destinations.map((place) => (
               <span key={place}>{place}</span>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
