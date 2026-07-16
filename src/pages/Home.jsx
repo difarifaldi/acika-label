@@ -1,5 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  Factory,
+  Globe2,
+  Layers3,
+  MessageCircle,
+  PackageCheck,
+  Ruler,
+  ScanSearch,
+  Scissors,
+  Shirt,
+  UserRound,
+} from "lucide-react";
 import Hero from "../components/Hero";
 function Stats() {
   const items = [
@@ -69,32 +81,100 @@ function Stats() {
 }
 
 function Services() {
-  const labels = [
-    "Design Consultation",
-    "Pattern Development",
-    "Sampling & Prototyping",
-    "Fabric Sourcing",
-    "Production Management",
-    "Quality Control",
-    "Packaging & Finishing",
-    "Global Shipping",
+  const services = [
+    ["Design Consultation", Shirt],
+    ["Pattern Development", Ruler],
+    ["Sampling & Prototyping", Scissors],
+    ["Fabric Sourcing", Layers3],
+    ["Production Management", Factory],
+    ["Quality Control", ScanSearch],
+    ["Packaging & Finishing", PackageCheck],
+    ["Global Shipping", Globe2],
   ];
+
   return (
-    <section className="bg-gray-50 py-8">
+    <section className="home-services py-12">
       <div className="max-w-6xl mx-auto px-6">
-        <h3 className="text-center text-lg text-gray-600">
+        <p className="section-kicker text-center">OUR SERVICES</p>
+        <h3 className="mt-3 text-center font-serif text-2xl text-stone-700">
           End-to-End Manufacturing Solutions
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
-          {labels.map((l, i) => (
-            <div
-              key={i}
-              className="p-6 bg-white border rounded text-center text-sm text-gray-600"
-            >
-              {l}
+        <div className="home-services-grid mt-8">
+          {services.map(([label, Icon], index) => (
+            <div key={label} className="home-service-card">
+              <span className="home-service-icon">
+                <Icon strokeWidth={1.35} />
+              </span>
+              <span className="home-service-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <p>{label}</p>
             </div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function AdminContacts() {
+  const admins = [
+    {
+      name: "Acika",
+      role: "Client Relations",
+      number: "6281295050880",
+      display: "+62 812 9505 0880",
+    },
+    {
+      name: "Renata",
+      role: "Production Consultant",
+      number: "6281295050880",
+      display: "+62 812 9505 0880",
+    },
+  ];
+
+  return (
+    <section className="admin-contact-section">
+      <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-16">
+        <div className="text-center">
+          <p className="section-kicker">TALK TO OUR TEAM</p>
+          <h2 className="mt-3 font-serif text-3xl">
+            Choose an Admin to Assist You
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-stone-500">
+            Hubungi tim kami melalui WhatsApp untuk konsultasi layanan,
+            produksi, atau kebutuhan kreatif brand Anda.
+          </p>
+        </div>
+        <div className="admin-contact-grid mt-9">
+          {admins.map((admin, index) => (
+            <article className="admin-contact-card" key={admin.name}>
+              <span className="admin-card-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="admin-avatar">
+                <UserRound strokeWidth={1.35} />
+              </span>
+              <div>
+                <p className="section-kicker">{admin.role}</p>
+                <h3 className="mt-2 font-serif text-2xl">Admin {admin.name}</h3>
+                <p className="mt-2 text-sm text-stone-500">{admin.display}</p>
+              </div>
+              <a
+                href={`https://wa.me/${admin.number}?text=Halo%20Admin%20${admin.name},%20saya%20ingin%20konsultasi%20tentang%20layanan%20Aireta.`}
+                target="_blank"
+                rel="noreferrer"
+                className="admin-whatsapp-button"
+              >
+                <MessageCircle size={16} strokeWidth={1.5} /> CHAT WHATSAPP{" "}
+                <span>→</span>
+              </a>
+            </article>
+          ))}
+        </div>
+        <p className="mt-5 text-center text-[10px] tracking-[0.08em] text-stone-400">
+          AVAILABLE MONDAY—SATURDAY · 09:00—17:00 WIB
+        </p>
       </div>
     </section>
   );
@@ -451,34 +531,7 @@ export default function Home() {
       <ProductionJourney />
       <GlobalReach />
 
-      <section className="py-12">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-6">
-          <div>
-            <h4 className="font-serif text-2xl">
-              Let's Create Something Extraordinary
-            </h4>
-            <p className="mt-4 text-gray-600">
-              Your next collection begins here.
-            </p>
-          </div>
-          <div className="md:col-span-2">
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input placeholder="Full Name" className="border p-3" />
-              <input placeholder="Brand / Company" className="border p-3" />
-              <input placeholder="Email Address" className="border p-3" />
-              <input placeholder="Country" className="border p-3" />
-              <textarea
-                placeholder="Message"
-                className="border p-3 md:col-span-2"
-                rows="4"
-              ></textarea>
-              <button className="bg-black text-white px-6 py-3 md:col-span-2">
-                REQUEST A QUOTE
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
+      <AdminContacts />
     </div>
   );
 }
