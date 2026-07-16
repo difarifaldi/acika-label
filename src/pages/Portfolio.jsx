@@ -13,14 +13,8 @@ const projects = [
   { title: "After Dark", category: "Evening Wear", location: "Dubai", image: "foto9.jpg", size: "wide" },
 ];
 
-const categories = ["All", ...new Set(projects.map((project) => project.category))];
-
 export default function Portfolio() {
-  const [category, setCategory] = useState("All");
   const [selected, setSelected] = useState(null);
-  const visibleProjects = category === "All"
-    ? projects
-    : projects.filter((project) => project.category === category);
 
   useEffect(() => {
     document.body.style.overflow = selected ? "hidden" : "";
@@ -60,21 +54,8 @@ export default function Portfolio() {
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-12 sm:px-6 sm:py-16">
-        <div className="portfolio-filter" role="group" aria-label="Filter portfolio">
-          {categories.map((item) => (
-            <button
-              type="button"
-              key={item}
-              className={category === item ? "portfolio-filter-active" : ""}
-              onClick={() => setCategory(item)}
-            >
-              {item}
-            </button>
-          ))}
-        </div>
-
-        <div className="portfolio-gallery mt-10">
-          {visibleProjects.map((project, index) => (
+        <div className="portfolio-gallery">
+          {projects.map((project, index) => (
             <button
               type="button"
               className={`portfolio-project portfolio-project-${project.size}`}
@@ -98,9 +79,6 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {visibleProjects.length === 0 && (
-          <p className="py-20 text-center text-stone-500">No projects in this category.</p>
-        )}
       </section>
 
       <section className="portfolio-closing">
