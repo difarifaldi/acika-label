@@ -97,7 +97,7 @@ function Services() {
       <div className="max-w-6xl mx-auto px-6">
         <p className="section-kicker text-center">OUR SERVICES</p>
         <h3 className="mt-3 text-center font-serif text-2xl text-stone-700">
-          End-to-End Manufacturing Solutions
+          From Concept to Collection, Crafted with Precision
         </h3>
         <div className="home-services-grid mt-8">
           {services.map(([label, Icon], index) => (
@@ -524,16 +524,20 @@ export default function Home() {
           <div>
             <p className="text-xs text-gray-400">ABOUT AIRETA</p>
             <h2 className="font-serif text-3xl mt-4">
-              A Manufacturing Partner for Visionary Fashion Brands
+              Built on Craftsmanship, Driven by Trust
             </h2>
             <p className="mt-4 text-gray-600">
-              Aireta combines technical expertise, advanced production
-              capabilities, and meticulous craftsmanship to support fashion
-              brands from concept development to global distribution.
+              Aireta is a fashion manufacturing studio dedicated to helping
+              brands bring their ideas to life. With a focus on quality,
+              consistency, and attention to detail, we create an environment
+              where creativity and craftsmanship work hand in hand. The result
+              is a trusted partnership that supports brands in building
+              collections with confidence.
             </p>
-            <button className="mt-6 border px-4 py-2">
+
+            <Link to="/contact" className="hero-primary-button mt-6">
               LEARN MORE ABOUT US
-            </button>
+            </Link>
           </div>
         </div>
       </section>
