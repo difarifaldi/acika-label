@@ -3,58 +3,44 @@ import { Link } from "react-router-dom";
 
 const services = [
   {
-    title: "Custom Design Consultation",
-    description:
-      "Konsultasi personal untuk menerjemahkan ide, identitas brand, dan target pasar menjadi konsep koleksi yang kuat.",
+    title: "Brand Identity & Creative Direction",
+    description: "Every successful brand begins with a clear identity. We create thoughtful visual identities and creative strategies that communicate your story with clarity, consistency, and purpose.",
     icon: "✦",
   },
   {
-    title: "Custom Pattern Design",
-    description:
-      "Pembuatan pola yang presisi dan disesuaikan dengan desain, ukuran, serta karakter bahan pilihan Anda.",
+    title: "Fashion Design Consultation",
+    description: "From concept exploration to collection planning, we help shape products that reflect your brand identity and market vision.",
     icon: "◇",
   },
   {
-    title: "Custom Embroidery",
-    description:
-      "Detail bordir eksklusif dengan hasil rapi untuk menghadirkan ciri khas yang berkelas pada setiap produk.",
+    title: "Pattern Development",
+    description: "Precision-crafted patterns designed for exceptional fit, efficient production, and consistent quality.",
     icon: "✣",
   },
   {
-    title: "Production",
-    description:
-      "Proses produksi end-to-end dengan kontrol kualitas yang konsisten, mulai dari sampel hingga produk akhir.",
+    title: "Custom Embroidery",
+    description: "Premium embroidery solutions that add distinctive detail, refined craftsmanship, and lasting value to every product.",
     icon: "⌁",
   },
   {
-    title: "Photoshoot Handling",
-    description:
-      "Penanganan photoshoot produk dari konsep kreatif, styling, hingga visual siap digunakan untuk promosi.",
-    icon: "◎",
-  },
-  {
-    title: "Video Campaign Handling",
-    description:
-      "Produksi video campaign yang membangun cerita brand dan menampilkan koleksi secara lebih hidup dan menarik.",
-    icon: "▷",
-  },
-  {
-    title: "Custom Website",
-    description:
-      "Website khusus yang elegan, responsif, dan dirancang untuk memperkuat kehadiran digital bisnis fashion Anda.",
-    icon: "⌘",
-  },
-  {
-    title: "Brand Identity & Creative Direction",
-    description:
-      "Pengembangan identitas visual dan arah kreatif yang konsisten agar brand Anda tampil kuat, autentik, dan mudah dikenali.",
+    title: "Production",
+    description: "From sampling to full-scale production, we ensure consistent quality, precision, and reliable craftsmanship at every stage.",
     icon: "✧",
   },
   {
-    title: "Packaging & Label Design",
-    description:
-      "Desain kemasan, hang tag, dan label pakaian yang memperkuat karakter brand serta meningkatkan pengalaman pelanggan.",
-    icon: "▱",
+    title: "Photoshoot Production",
+    description: "From creative direction and styling to on-set coordination, we produce compelling visuals that showcase your brand at its best.",
+    icon: "◎",
+  },
+  {
+    title: "Video Campaign Production",
+    description: "We produce engaging campaign videos that tell your brand story and showcase your products across digital platforms.",
+    icon: "▷",
+  },
+  {
+    title: "Website Design & Development",
+    description: "We design and develop responsive websites that strengthen your online presence and create a seamless digital experience for your customers.",
+    icon: "⌘",
   },
 ];
 
@@ -66,13 +52,11 @@ export default function Services() {
           <p className="section-kicker">OUR SERVICES</p>
           <div className="mt-5 grid gap-8 md:grid-cols-2 md:items-end">
             <h1 className="max-w-2xl font-serif text-4xl leading-tight sm:text-5xl md:text-6xl">
-              From First Sketch to a
-              <span className="text-gold"> Remarkable Brand</span>
+              From Concept to
+              <span className="text-gold"> Production</span>
             </h1>
             <p className="max-w-lg text-sm leading-7 text-stone-600 md:justify-self-end md:text-base">
-              Solusi kreatif dan produksi terpadu untuk membantu brand Anda
-              bertumbuh—dari pengembangan desain hingga kampanye dan pengalaman
-              digital.
+              We provide end-to-end production solutions, from design development and pattern making to sampling, embroidery, and full-scale manufacturing—ensuring quality, precision, and consistency at every stage.
             </p>
           </div>
         </div>
@@ -86,16 +70,10 @@ export default function Services() {
                 <span className="service-icon" aria-hidden="true">
                   {service.icon}
                 </span>
-                <span className="service-number">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
+                <span className="service-number">{String(index + 1).padStart(2, "0")}</span>
               </div>
-              <h2 className="mt-8 font-serif text-2xl leading-snug">
-                {service.title}
-              </h2>
-              <p className="mt-4 text-sm leading-7 text-stone-600">
-                {service.description}
-              </p>
+              <h2 className="mt-8 font-serif text-2xl leading-snug">{service.title}</h2>
+              <p className="mt-4 text-sm leading-7 text-stone-600">{service.description}</p>
               <Link to="/contact" className="service-link">
                 DISCUSS THIS SERVICE <span aria-hidden="true">→</span>
               </Link>
@@ -107,12 +85,9 @@ export default function Services() {
       <section className="services-cta">
         <div className="mx-auto max-w-4xl px-5 py-16 text-center sm:px-6 sm:py-20">
           <p className="section-kicker">LET'S WORK TOGETHER</p>
-          <h2 className="mt-4 font-serif text-3xl sm:text-4xl">
-            Ready to Bring Your Vision to Life?
-          </h2>
+          <h2 className="mt-4 font-serif text-3xl sm:text-4xl">Let's Build Something Exceptional Together</h2>
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-stone-600">
-            Ceritakan kebutuhan dan visi brand Anda. Kami akan membantu memilih
-            layanan serta proses yang paling tepat.
+            Share your vision with us, and we'll help you choose the right services to transform your ideas into a distinctive brand—from strategy and production to launch.
           </p>
           <Link to="/contact" className="services-cta-button mt-8 inline-flex">
             START YOUR PROJECT <span aria-hidden="true">→</span>

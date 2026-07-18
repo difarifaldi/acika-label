@@ -1,6 +1,9 @@
 import React from "react";
 import { Camera, Mail, MapPin } from "lucide-react";
 
+const airetaMapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=Konveksi%20Semi%20Butik%20%26%20Butik%20Aireta%20%2C%20Jasa%20Lubang%20Kancing%20Jamur";
+
 const contactDetails = [
   {
     label: "INSTAGRAM",
@@ -10,14 +13,14 @@ const contactDetails = [
   },
   {
     label: "EMAIL",
-    value: "hello@aireta.com",
-    href: "mailto:hello@aireta.com",
+    value: "konveksibyaireta@gmail.com",
+    href: "mailto:konveksibyaireta@gmail.com",
     icon: Mail,
   },
   {
     label: "LOCATION",
-    value: "Bandung, West Java, Indonesia",
-    href: "https://maps.google.com/?q=Bandung,Indonesia",
+    value: "Bekasi, West Java, Indonesia",
+    href: airetaMapsUrl,
     icon: MapPin,
   },
 ];
@@ -40,11 +43,7 @@ export default function Contact() {
       data.get("message"),
     ].join("\n");
 
-    window.open(
-      `https://wa.me/6281295050880?text=${encodeURIComponent(message)}`,
-      "_blank",
-      "noopener,noreferrer",
-    );
+    window.open(`https://wa.me/6281295050880?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -58,8 +57,7 @@ export default function Contact() {
               <span className="text-gold"> Extraordinary</span>
             </h1>
             <p className="max-w-lg text-sm leading-7 text-stone-600 md:justify-self-end md:text-base">
-              Punya ide koleksi atau ingin mengembangkan brand Anda? Ceritakan
-              visi Anda dan mari mulai percakapan yang berarti.
+              Have an idea, a collection, or a brand you'd like to build? We'd love to hear your vision and help bring it to life through thoughtful creative and production solutions.
             </p>
           </div>
         </div>
@@ -69,39 +67,22 @@ export default function Contact() {
         <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
           <aside>
             <p className="section-kicker">GET IN TOUCH</p>
-            <h2 className="mt-4 font-serif text-3xl leading-tight">
-              We&apos;d Love to Hear About Your Vision
-            </h2>
+            <h2 className="mt-4 font-serif text-3xl leading-tight">Let's Bring Your Vision to Life</h2>
             <p className="mt-5 text-sm leading-7 text-stone-600">
-              Hubungi kami secara langsung atau isi formulir. Tim kami akan
-              merespons dan membantu menemukan solusi terbaik untuk kebutuhan
-              Anda.
+              Whether you're starting a new brand or expanding an existing one, our team is ready to help you with creative direction, production, and digital solutions all in one place.
             </p>
 
             <div className="mt-9 space-y-3">
               {contactDetails.map((detail) => {
                 const Icon = detail.icon;
                 return (
-                  <a
-                    key={detail.label}
-                    href={detail.href}
-                    target={detail.label === "EMAIL" ? undefined : "_blank"}
-                    rel="noreferrer"
-                    className="contact-detail"
-                  >
+                  <a key={detail.label} href={detail.href} target={detail.label === "EMAIL" ? undefined : "_blank"} rel="noreferrer" className="contact-detail">
                     <span className="contact-detail-icon" aria-hidden="true">
-                      <Icon
-                        size={detail.label === "LOCATION" ? 22 : 19}
-                        strokeWidth={1.5}
-                      />
+                      <Icon size={detail.label === "LOCATION" ? 22 : 19} strokeWidth={1.5} />
                     </span>
                     <span>
-                      <span className="block text-[10px] tracking-[0.16em] text-stone-400">
-                        {detail.label}
-                      </span>
-                      <span className="mt-1 block text-sm text-stone-800">
-                        {detail.value}
-                      </span>
+                      <span className="block text-[10px] tracking-[0.16em] text-stone-400">{detail.label}</span>
+                      <span className="mt-1 block text-sm text-stone-800">{detail.value}</span>
                     </span>
                   </a>
                 );
@@ -109,16 +90,18 @@ export default function Contact() {
             </div>
 
             <div className="contact-hours mt-9">
-              <p className="text-[10px] tracking-[0.16em] text-gold">
-                BUSINESS HOURS
-              </p>
+              <p className="text-[10px] tracking-[0.16em] text-gold">BUSINESS HOURS</p>
               <div className="mt-4 flex justify-between gap-4 text-sm">
                 <span className="text-stone-500">Monday — Friday</span>
-                <span>09:00 — 17:00</span>
+                <span>10:00 — 17:00</span>
               </div>
               <div className="mt-3 flex justify-between gap-4 text-sm">
                 <span className="text-stone-500">Saturday</span>
-                <span>By Appointment</span>
+                <span>10:00 — 13:00</span>
+              </div>
+              <div className="mt-3 flex justify-between gap-4 text-sm">
+                <span className="text-stone-500">Sunday</span>
+                <span>Closed</span>
               </div>
             </div>
           </aside>
@@ -128,24 +111,15 @@ export default function Contact() {
               <div className="flex items-center justify-between gap-4 border-b border-stone-200 pb-6">
                 <div>
                   <p className="section-kicker">PROJECT INQUIRY</p>
-                  <h2 className="mt-2 font-serif text-2xl">
-                    Tell Us About Your Project
-                  </h2>
+                  <h2 className="mt-2 font-serif text-2xl">Tell Us About Your Project</h2>
                 </div>
-                <span className="hidden font-serif text-4xl text-[#d2b98f] sm:block">
-                  01
-                </span>
+                <span className="hidden font-serif text-4xl text-[#d2b98f] sm:block">01</span>
               </div>
 
               <div className="mt-7 grid gap-6 sm:grid-cols-2">
                 <label className="form-field">
                   <span>FULL NAME *</span>
-                  <input
-                    name="name"
-                    type="text"
-                    placeholder="Your name"
-                    required
-                  />
+                  <input name="name" type="text" placeholder="Your name" required />
                 </label>
                 <label className="form-field">
                   <span>BRAND / COMPANY</span>
@@ -153,21 +127,11 @@ export default function Contact() {
                 </label>
                 <label className="form-field">
                   <span>EMAIL ADDRESS *</span>
-                  <input
-                    name="email"
-                    type="email"
-                    placeholder="name@email.com"
-                    required
-                  />
+                  <input name="email" type="email" placeholder="name@email.com" required />
                 </label>
                 <label className="form-field">
                   <span>WHATSAPP NUMBER *</span>
-                  <input
-                    name="whatsapp"
-                    type="tel"
-                    placeholder="+62"
-                    required
-                  />
+                  <input name="whatsapp" type="tel" placeholder="+62" required />
                 </label>
                 <label className="form-field">
                   <span>SERVICE INTERESTED IN</span>
@@ -188,31 +152,18 @@ export default function Contact() {
                 </label>
                 <label className="form-field">
                   <span>ESTIMATED QUANTITY</span>
-                  <input
-                    name="quantity"
-                    type="number"
-                    min="1"
-                    placeholder="Number of pieces"
-                  />
+                  <input name="quantity" type="number" min="1" placeholder="Number of pieces" />
                 </label>
                 <label className="form-field sm:col-span-2">
                   <span>TELL US ABOUT YOUR PROJECT *</span>
-                  <textarea
-                    name="message"
-                    rows="5"
-                    placeholder="Share your vision, timeline, and requirements..."
-                    required
-                  />
+                  <textarea name="message" rows="5" placeholder="Share your vision, timeline, and requirements..." required />
                 </label>
               </div>
 
               <button type="submit" className="contact-submit mt-8">
                 CONTINUE TO WHATSAPP <span aria-hidden="true">→</span>
               </button>
-              <p className="mt-4 text-[11px] leading-5 text-stone-400">
-                Data tidak disimpan di website. Setelah klik tombol, Anda akan
-                diarahkan ke WhatsApp untuk memeriksa dan mengirim pesan.
-              </p>
+              <p className="mt-4 text-[11px] leading-5 text-stone-400">Data tidak disimpan di website. Setelah klik tombol, Anda akan diarahkan ke WhatsApp untuk memeriksa dan mengirim pesan.</p>
             </form>
           </div>
         </div>
@@ -223,44 +174,32 @@ export default function Contact() {
           <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="section-kicker">VISIT OUR STUDIO</p>
-              <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
-                Find Us in Bandung
-              </h2>
-              <p className="mt-3 max-w-xl text-sm leading-7 text-stone-600">
-                Kunjungan ke studio tersedia dengan membuat janji terlebih
-                dahulu. Kami siap menyambut dan mendiskusikan kebutuhan project
-                Anda.
-              </p>
+              <h2 className="mt-3 font-serif text-3xl sm:text-4xl">Find Us in Bekasi</h2>
+              <p className="mt-3 max-w-xl text-sm leading-7 text-stone-600">Visit our studio by appointment and meet with our team to discuss your ideas, explore tailored solutions, and bring your vision to life.</p>
             </div>
-            <a
-              href="https://maps.google.com/?q=Bandung,West+Java,Indonesia"
-              target="_blank"
-              rel="noreferrer"
-              className="gold-link inline-flex self-start sm:self-auto"
-            >
+            <a href={airetaMapsUrl} target="_blank" rel="noreferrer" className="gold-link inline-flex self-start sm:self-auto">
               OPEN IN GOOGLE MAPS <span aria-hidden="true">→</span>
             </a>
           </div>
 
           <div className="contact-map-wrap">
             <iframe
-              title="Aireta Studio location in Bandung"
-              src="https://www.google.com/maps?q=Bandung,West%20Java,Indonesia&z=13&output=embed"
+              title="Aireta Studio location in Bekasi"
+              src="https://www.google.com/maps?q=Konveksi%20Semi%20Butik%20%26%20Butik%20Aireta%20%2C%20Jasa%20Lubang%20Kancing%20Jamur%2C%20Bekasi%2C%20Jawa%20Barat&z=15&output=embed"
               width="100%"
               height="100%"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
             />
+
             <div className="contact-map-card">
               <span className="contact-map-pin" aria-hidden="true">
                 ⌖
               </span>
               <div>
-                <p className="text-[10px] tracking-[0.16em] text-gold">
-                  AIRETA STUDIO
-                </p>
-                <p className="mt-2 font-serif text-xl">Bandung, West Java</p>
+                <p className="text-[10px] tracking-[0.16em] text-gold">AIRETA STUDIO</p>
+                <p className="mt-2 font-serif text-xl">Bekasi, West Java</p>
                 <p className="mt-1 text-xs text-stone-500">Indonesia</p>
               </div>
             </div>
