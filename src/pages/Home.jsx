@@ -266,20 +266,22 @@ function CustomerFeedback() {
   ];
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const pageCount = Math.ceil(testimonials.length / 2);
+  const visibleTestimonials = testimonials.slice(active * 2, active * 2 + 2);
 
   useEffect(() => {
     if (paused) return undefined;
     const timer = window.setInterval(
-      () => setActive((current) => (current + 1) % testimonials.length),
+      () => setActive((current) => (current + 1) % pageCount),
       5500,
     );
     return () => window.clearInterval(timer);
-  }, [paused, testimonials.length]);
+  }, [paused, pageCount]);
 
   const changeSlide = (direction) => {
     setActive(
       (current) =>
-        (current + direction + testimonials.length) % testimonials.length,
+        (current + direction + pageCount) % pageCount,
     );
   };
 
@@ -290,10 +292,10 @@ function CustomerFeedback() {
       onMouseLeave={() => setPaused(false)}
     >
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-20">
-        <div className="mb-8 flex items-end justify-between gap-5 sm:mb-10">
+        <div className="mb-6 flex items-end justify-between gap-5">
           <div>
             <p className="section-kicker">WHAT OUR CLIENTS SAY</p>
-            <h2 className="mt-3 max-w-lg font-serif text-3xl leading-tight sm:text-4xl">
+            <h2 className="mt-2 max-w-lg font-serif text-2xl leading-tight sm:text-3xl">
               Stories Behind Successful Collections
             </h2>
           </div>
@@ -317,16 +319,15 @@ function CustomerFeedback() {
           </div>
         </div>
 
-        <div className="feedback-slider">
-          {testimonials.map((item, index) => (
+        <div className="feedback-slider feedback-slider-pair">
+          {visibleTestimonials.map((item, index) => (
             <article
               key={item.name}
-              className={`feedback-slide ${index === active ? "feedback-slide-active" : ""}`}
-              aria-hidden={index !== active}
+              className="feedback-slide feedback-slide-active"
             >
               <div className="feedback-content">
                 <span className="feedback-text-number">
-                  {String(index + 1).padStart(2, "0")}
+                  {String(active * 2 + index + 1).padStart(2, "0")}
                 </span>
                 <div className="feedback-stars" aria-label="5 out of 5 stars">
                   ★ ★ ★ ★ ★
@@ -351,9 +352,9 @@ function CustomerFeedback() {
 
         <div className="mt-6 flex items-center justify-between sm:justify-center">
           <div className="flex gap-2">
-            {testimonials.map((item, index) => (
+            {Array.from({ length: pageCount }).map((_, index) => (
               <button
-                key={item.name}
+                key={index}
                 type="button"
                 className={`slider-dot ${index === active ? "slider-dot-active" : ""}`}
                 aria-label={`Show testimonial ${index + 1}`}
