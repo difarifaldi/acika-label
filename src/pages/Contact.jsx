@@ -1,5 +1,6 @@
 import React from "react";
 import { Camera, Mail, MapPin } from "lucide-react";
+import Seo from "../components/Seo";
 
 const airetaMapsUrl =
   "https://www.google.com/maps/search/?api=1&query=Konveksi%20Semi%20Butik%20%26%20Butik%20Aireta%20%2C%20Jasa%20Lubang%20Kancing%20Jamur";
@@ -48,6 +49,11 @@ export default function Contact() {
 
   return (
     <div className="contact-page">
+      <Seo
+        title="Contact Aireta Studio"
+        description="Contact Aireta Studio in Bekasi to discuss fashion design, garment production, embroidery, branding, photoshoots, video campaigns, and digital services."
+        path="/contact/"
+      />
       <section className="contact-hero">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
           <p className="section-kicker">CONTACT US</p>

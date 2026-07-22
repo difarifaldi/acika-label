@@ -13,6 +13,7 @@ import {
   UserRound,
 } from "lucide-react";
 import Hero from "../components/Hero";
+import Seo, { SITE_URL } from "../components/Seo";
 function Stats() {
   const items = [
     { end: 15, label: "YEARS EXPERIENCE" },
@@ -518,6 +519,24 @@ export default function Home() {
 
   return (
     <div>
+      <Seo
+        title="Aireta Studio | Fashion Design & Production"
+        description="Aireta Studio helps fashion brands with design consultation, pattern development, embroidery, sampling, production, branding, and creative campaigns."
+        path="/"
+        schema={{
+          "@type": "ProfessionalService",
+          name: "Aireta Studio",
+          url: `${SITE_URL}/`,
+          image: `${SITE_URL}/images/main-landscape.png`,
+          areaServed: "Indonesia",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Bekasi",
+            addressRegion: "West Java",
+            addressCountry: "ID",
+          },
+        }}
+      />
       <Hero />
       <section className="bg-white">
         <div className="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-2 gap-8 items-center">

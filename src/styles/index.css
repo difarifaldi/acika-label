@@ -21,6 +21,116 @@ body {
   overflow-x: hidden;
 }
 
+.loading-screen {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #0d0b08;
+  opacity: 1;
+  transition: opacity 450ms ease, visibility 450ms ease;
+}
+
+.loading-screen-leaving {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.loading-screen-glow {
+  position: absolute;
+  width: min(70vw, 34rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(176, 141, 87, 0.18), transparent 68%);
+  animation: loading-glow 1.8s ease-in-out infinite;
+}
+
+.loading-screen-content {
+  position: relative;
+  display: flex;
+  width: min(76vw, 22rem);
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-screen-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: loading-logo-in 850ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.loading-screen-line {
+  width: 7rem;
+  height: 1px;
+  margin-top: -2.2rem;
+  overflow: hidden;
+  background: rgba(221, 187, 119, 0.16);
+}
+
+.loading-screen-line span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #d8b66e, transparent);
+  animation: loading-line 1.15s ease-in-out both;
+}
+
+.loading-screen-content p {
+  margin-top: 1rem;
+  color: rgba(224, 198, 145, 0.72);
+  font-size: 0.52rem;
+  letter-spacing: 0.28em;
+  animation: loading-copy-in 700ms 300ms ease both;
+}
+
+@keyframes loading-logo-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes loading-copy-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes loading-line {
+  from { transform: translateX(-105%); }
+  to { transform: translateX(105%); }
+}
+
+@keyframes loading-glow {
+  0%, 100% { opacity: 0.65; transform: scale(0.92); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@media (max-width: 480px) {
+  .loading-screen-content {
+    width: min(86vw, 19rem);
+  }
+
+  .loading-screen-line {
+    margin-top: -1.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-screen-glow,
+  .loading-screen-logo,
+  .loading-screen-line span,
+  .loading-screen-content p {
+    animation: none;
+  }
+}
+
 .font-serif {
   font-family: var(--serif);
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Seo from "../components/Seo";
 
 const services = [
   {
@@ -47,6 +48,11 @@ const services = [
 export default function Services() {
   return (
     <div className="services-page">
+      <Seo
+        title="Fashion Design & Production Services"
+        description="Explore Aireta Studio services including brand identity, fashion design, pattern development, custom embroidery, garment production, photoshoots, video campaigns, and websites."
+        path="/our-services/"
+      />
       <section className="services-hero">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
           <p className="section-kicker">OUR SERVICES</p>

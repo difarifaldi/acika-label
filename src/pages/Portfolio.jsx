@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Seo, { SITE_URL } from "../components/Seo";
 
 const projects = [
   { title: "Modest Wear (Basic)", image: "foto1.jpg", size: "tall" },
@@ -35,6 +36,12 @@ export default function Portfolio() {
 
   return (
     <div className="portfolio-page">
+      <Seo
+        title="Fashion Portfolio & Selected Collections"
+        description="View Aireta Studio selected fashion works, including modest wear, abaya, kidswear, manwear, sarimbit, hijab, embroidery, and custom collections."
+        path="/portfolio/"
+        image={`${SITE_URL}/images/foto1.jpg`}
+      />
       <section className="portfolio-hero">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
           <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-end">

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://difarifaldi.github.io/aireta-studio/sitemap.xml
