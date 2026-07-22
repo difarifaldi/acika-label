@@ -120,16 +120,16 @@ function Services() {
 function AdminContacts() {
   const admins = [
     {
-      name: "Acika",
       role: "Client Relations",
       number: "6281295050880",
-      display: "+62 812 9505 0880",
+      description:
+        "For service information, collaboration, and general inquiries.",
     },
     {
-      name: "Renata",
       role: "Production Consultant",
       number: "6281295050880",
-      display: "+62 812 9505 0880",
+      description:
+        "For sampling, production planning, quantity, and timelines.",
     },
   ];
 
@@ -148,7 +148,7 @@ function AdminContacts() {
         </div>
         <div className="admin-contact-grid mt-9">
           {admins.map((admin, index) => (
-            <article className="admin-contact-card" key={admin.name}>
+            <article className="admin-contact-card" key={admin.role}>
               <span className="admin-card-number">
                 {String(index + 1).padStart(2, "0")}
               </span>
@@ -156,12 +156,14 @@ function AdminContacts() {
                 <UserRound strokeWidth={1.35} />
               </span>
               <div>
-                <p className="section-kicker">{admin.role}</p>
-                <h3 className="mt-2 font-serif text-2xl">Admin {admin.name}</h3>
-                <p className="mt-2 text-sm text-stone-500">{admin.display}</p>
+                <p className="section-kicker">CONTACT TEAM</p>
+                <h3 className="mt-2 font-serif text-2xl">{admin.role}</h3>
+                <p className="mt-3 text-sm leading-6 text-stone-500">
+                  {admin.description}
+                </p>
               </div>
               <a
-                href={`https://wa.me/${admin.number}?text=Halo%20Admin%20${admin.name},%20saya%20ingin%20konsultasi%20tentang%20layanan%20Aireta.`}
+                href={`https://wa.me/${admin.number}?text=Halo%20tim%20${encodeURIComponent(admin.role)},%20saya%20ingin%20konsultasi%20tentang%20layanan%20Aireta.`}
                 target="_blank"
                 rel="noreferrer"
                 className="admin-whatsapp-button"
@@ -237,7 +239,6 @@ function CustomerFeedback() {
       name: "Nadia Prameswari",
       role: "Founder, Maison Nara",
       location: "Jakarta, Indonesia",
-      image: `${import.meta.env.BASE_URL}images/foto6.jpg`,
       quote:
         "Aireta tidak hanya memahami desain kami, tetapi juga karakter brand yang ingin kami bangun. Hasil produksinya rapi, komunikasinya jelas, dan setiap detail terasa sangat diperhatikan.",
     },
@@ -245,7 +246,6 @@ function CustomerFeedback() {
       name: "Sarah Wijaya",
       role: "Creative Director, SORA Studio",
       location: "Bekasi, Indonesia",
-      image: `${import.meta.env.BASE_URL}images/foto7.jpg`,
       quote:
         "Dari proses sampling sampai koleksi siap diluncurkan, tim Aireta sangat suportif. Mereka membantu kami menemukan solusi terbaik tanpa mengorbankan kualitas maupun visi kreatif.",
     },
@@ -253,7 +253,6 @@ function CustomerFeedback() {
       name: "Alya Rahman",
       role: "Brand Owner, Élan Modest",
       location: "Kuala Lumpur, Malaysia",
-      image: `${import.meta.env.BASE_URL}images/foto8.jpg`,
       quote:
         "Kami merasa memiliki partner, bukan sekadar vendor produksi. Timeline terjaga, kualitas konsisten, dan hasil akhirnya bahkan melampaui ekspektasi tim kami.",
     },
@@ -261,7 +260,6 @@ function CustomerFeedback() {
       name: "Catherine Lim",
       role: "Founder, Atelier C",
       location: "Singapore",
-      image: `${import.meta.env.BASE_URL}images/foto9.jpg`,
       quote:
         "Professional, thoughtful, and remarkably detail-oriented. Aireta made the entire development process feel effortless and delivered a collection we are truly proud of.",
     },
@@ -326,13 +324,10 @@ function CustomerFeedback() {
               className={`feedback-slide ${index === active ? "feedback-slide-active" : ""}`}
               aria-hidden={index !== active}
             >
-              <div className="feedback-image-wrap">
-                <img src={item.image} alt={`Collection by ${item.role}`} />
-                <span className="feedback-image-number">
+              <div className="feedback-content">
+                <span className="feedback-text-number">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-              </div>
-              <div className="feedback-content">
                 <div className="feedback-stars" aria-label="5 out of 5 stars">
                   ★ ★ ★ ★ ★
                 </div>
@@ -490,7 +485,9 @@ function GlobalReach() {
             <circle cx="585" cy="224" r="3" />
             <circle cx="600" cy="287" r="3" />
           </svg>
-          <span className="map-label map-label-origin">BEKASI · INDONESIA</span>
+          <span className="map-label map-label-origin">
+            JAKARTA · INDONESIA
+          </span>
           {/* <div className="global-destinations">
             {destinations.map((place) => (
               <span key={place}>{place}</span>

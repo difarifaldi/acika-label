@@ -388,7 +388,7 @@ button {
 .admin-contact-card {
   position: relative;
   display: flex;
-  min-height: 20rem;
+  min-height: 17rem;
   width: calc((100% - 2rem) / 3);
   flex-direction: column;
   align-items: flex-start;
@@ -1605,7 +1605,7 @@ button {
 
 .feedback-slider {
   position: relative;
-  min-height: 21rem;
+  min-height: 20rem;
   overflow: hidden;
   background: white;
   box-shadow: 0 25px 70px rgba(66, 50, 28, 0.09);
@@ -1615,7 +1615,7 @@ button {
   position: absolute;
   inset: 0;
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: 1fr;
   visibility: hidden;
   opacity: 0;
   transform: translateX(2rem);
@@ -1631,39 +1631,14 @@ button {
   transform: translateX(0);
 }
 
-.feedback-image-wrap {
-  position: relative;
-  min-height: 21rem;
-  overflow: hidden;
-  background: #ddd5c9;
-}
-
-.feedback-image-wrap::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(22, 18, 13, 0.25));
-}
-
-.feedback-image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 7s ease;
-}
-
-.feedback-slide-active .feedback-image-wrap img {
-  transform: scale(1.06);
-}
-
-.feedback-image-number {
+.feedback-text-number {
   position: absolute;
   z-index: 1;
-  right: 1.5rem;
-  bottom: 1.5rem;
-  color: white;
+  top: 1.5rem;
+  left: 1.75rem;
+  color: #b8afa3;
   font-family: var(--serif);
-  font-size: 1.2rem;
+  font-size: 0.75rem;
   letter-spacing: 0.12em;
 }
 
@@ -1672,7 +1647,9 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2rem clamp(1.5rem, 3.5vw, 2.75rem);
+  align-items: center;
+  padding: 2.5rem clamp(2rem, 7vw, 6rem);
+  text-align: center;
 }
 
 .feedback-stars {
@@ -1684,7 +1661,7 @@ button {
 .feedback-quote-mark {
   position: absolute;
   top: 2rem;
-  right: 3rem;
+  right: 4rem;
   color: rgba(176, 141, 87, 0.14);
   font-family: Georgia, serif;
   font-size: 6rem;
@@ -1697,7 +1674,8 @@ button {
   margin: 1.75rem 0 0;
   color: #292524;
   font-family: var(--serif);
-  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  max-width: 42rem;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
   line-height: 1.5;
 }
 
@@ -1749,21 +1727,16 @@ button {
 
 @media (max-width: 767px) {
   .feedback-slider {
-    min-height: 32rem;
+    min-height: 25rem;
   }
 
   .feedback-slide {
     grid-template-columns: 1fr;
-    grid-template-rows: 12rem 1fr;
-  }
-
-  .feedback-image-wrap {
-    min-height: 12rem;
   }
 
   .feedback-content {
-    justify-content: flex-start;
-    padding: 2rem 1.5rem;
+    justify-content: center;
+    padding: 2.5rem 1.5rem;
   }
 
   .feedback-quote-mark {
